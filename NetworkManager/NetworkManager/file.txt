@@ -1,0 +1,70 @@
+:f1:70:34:80:65           2              unknown           Klymchuk Oleksandr Phone
+9c:5c:f9:46:71:89           2              unknown           Shibistiy Vadim Phone
+9c:6c:15:37:ec:18           3              unknown           Sokyra Oksana Phone
+9c:b7:0d:93:c9:ad           3              unknown           Melnik Christian Laptop
+a0:32:99:9a:63:d0           3              unknown           Kravchuk Oleg David Phone
+a0:32:99:cb:61:5c           3              unknown           Lishchynska Mariana Tablet
+a0:39:f7:37:e9:12           3              unknown           Melnik Christian Phone 
+a0:88:69:49:16:64           2              unknown           Vasiutiak Ihor Laptop
+a0:88:b4:18:dd:c8           2              unknown           Mandziuk Bohdan Laptop
+a0:cb:fd:4e:7b:d8           3              unknown           Valkiv Oksana Phone
+a4:5e:60:e9:f5:5f           3              unknown           Sendziuk Mariia Laptop 1
+a4:ba:76:19:ab:82           3              unknown           Kovalenko Oksana Phone
+a4:c4:94:df:9b:fc           3              unknown           Sendziuk Mariia Laptop 2
+a8:66:7f:8b:fd:47           2              unknown           Smetana Volodymyr Phone 2
+a8:81:95:89:48:7a           2              unknown           Romanytsia Vitalii Phone
+aa:e8:59:20:53:7e           2              unknown           Dropko Michal Laptop
+ac:1f:74:04:fe:b0           3              unknown           Durasova Viktoria Phone 2
+ac:1f:74:85:51:9e           3              unknown           Temnenko Yevhenii Phone
+ac:22:0b:a9:83:0d           3              unknown           Kochanskiy Toma Tablet
+ac:38:70:de:1d:d7           2              unknown           Kokosh Artem Laptop
+ac:3c:0b:86:09:82           2              unknown           Terliuk Oleksiy Tablet
+ac:c1:ee:22:5a:b7           2              unknown           Busel Mykhailo Phone
+ac:fd:ce:7c:03:f3           3              unknown           Ivanchuk Nazar Laptop
+b0:65:bd:4d:3e:58           3              unknown           Riy Gryhoriy Laptop
+b0:70:2d:c8:79:33           2              unknown           Chyborak Solomiia Phone
+b0:70:2d:ca:86:12           3              unknown           Babenko Mariia Phone
+b0:c1:9e:1d:55:02           3              unknown           Kohut Noname Phone
+b4:18:d1:a2:dc:37           2              unknown           Maryskevych Andrii Tablet
+b4:8b:19:a8:81:8d           3              unknown           Kosenko Hanna Phone
+b4:f0:ab:b0:b8:73           2              unknown           Nituch Igor
+b8:53:ac:15:a6:0a           2              unknown           Romanytsia Vitalii Phone
+b8:78:2e:5d:9e:a8           2              unknown           Levchyk Petro Phone 4
+b8:c7:5d:d9:ec:ea           3              unknown           Logush Mariana Tablet
+b8:e1:f6:07:cb:a9           2              unknown           Babiy Olga Phone
+b8:ee:65:7b:59:3d           3              unknown           Sokyra Oksana Laptop
+b8:ff:61:50:69:f8           3              unknown           Biliachat Vira Tablet
+ba:a1:0b:10:4e:9b           2              unknown           Dropko Michal Laptop
+bc:6c:21:9e:e7:37           3              unknown           Riy Gryhoriy Phone
+bc:75:74:b4:e0:37           2              unknown           Katolyk Taras Phone
+bc:76:5e:46:2a:33           3              unknown           Shylych Yaroslav Phone
+c0:64:c6:dc:4e:a4           2              unknown           Hr. Mozoluk NOKIA
+c4:3a:be:b5:15:7a           2              unknown           Savchenko Vasyl Phone
+c4:85:08:b2:88:9c           3              unknown           Zitulets Natalia Laptop 2
+c4:b3:01:d8:a3:69           2              unknown           Taracinskiy Orest Laptop
+c8:14:79:bb:92:46           3              unknown           Kosobokova Anna
+c8:6f:1d:0a:82:63           3              unknown           Ilkiv Danylo Phone
+c8:85:50:13:b5:34           3              unknown           Andrushchak Volodymyr Tablet
+c8:94:bb:23:29:9e           3              unknown           Garasymiv Khrystyna
+cc:07:e4:d8:d4:10           3              unknown           Durasova Viktoria 3
+cc:73:14:0a:7e:15           2              unknown           Kolomytseva Mariana Phone
+d0:2b:20:b8:5e:0b           3              unknown           Vukolov Egor Phone
+d0:5b:a8:fc:12:bb           3              unknown           Lavrishko Sergii Phone
+d0:81:7a:7e:70:53           3              unknown           Temnenko Yevhenii Phone 2
+d0:87:e2:5e:63:d8           3              unknown           Voroshchuk Svitlana Tablet
+d0:87:e2:96:11:87           3              unknown           Nenko Hanna Phone
+d0:df:9a:13:b7:6c           2              unknown           Kolotyuk Dmytro Laptop
+d0:e7:82:c8:d9:89           2              unknown           Kornatyy Vlad Tablet
+d4:0b:1a:ba:d6:d7           2              unknown           Chyborak Solomiia
+d4:ae:05:11:25:91           3              unknown           Biliachat Vira Phone
+d8:1d:72:4e:c8:36           3              unknown           Krun Volodymyr Phone
+d8:5d:e2:d6:2c:91           3              unknown           Polishchuk Valeria Laptop
+d8:96:95:85:33:c6           3              unknown           Losynska Nataliya Phone
+dc:2b:2a:4a:27:de           3              unknown           Grechyshkina Tetyana Phone 2
+dc:2b:2a:c3:59:43           2              unknown           Kostyshyn Irina Phone
+dc:85:de:a1:cd:f9           3              unknown           Yakubovska Eva Laptop
+e0:94:67:e4:27:e4           2              unknown           Levchyk Petro Laptop
+e0:b5:2d:7d:a3:71           2              unknown           Dobrova Ksenia Phone
+
+
+Would you like to display the next 15 entries? (y/n) 

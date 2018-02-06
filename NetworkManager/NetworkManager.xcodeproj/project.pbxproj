@@ -12,9 +12,14 @@
 		9067BF3020265198004DD071 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9067BF2E20265198004DD071 /* Main.storyboard */; };
 		9067BF3220265198004DD071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9067BF3120265198004DD071 /* Assets.xcassets */; };
 		9067BF3520265198004DD071 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9067BF3320265198004DD071 /* LaunchScreen.storyboard */; };
+		9067BF60202898B0004DD071 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9067BF5F202898B0004DD071 /* Users.swift */; };
+		90E6D5CA202A403900C350D3 /* SSHManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E6D5C9202A403900C350D3 /* SSHManager.swift */; };
+		A198CE0B336ACDAE0179ABB9 /* Pods_NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C48626D2DA8F8047CB2754 /* Pods_NetworkManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		484D586605A29B8F2372090B /* Pods-NetworkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.release.xcconfig"; sourceTree = "<group>"; };
+		57CB19451580205F3C745986 /* Pods-NetworkManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.debug.xcconfig"; sourceTree = "<group>"; };
 		9067BF2720265198004DD071 /* NetworkManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9067BF2A20265198004DD071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9067BF2C20265198004DD071 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,10 @@
 		9067BF3120265198004DD071 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9067BF3420265198004DD071 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9067BF3620265198004DD071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9067BF3D20265313004DD071 /* NetworkManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkManager-Bridging-Header.h"; sourceTree = "<group>"; };
+		9067BF5F202898B0004DD071 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		90E6D5C9202A403900C350D3 /* SSHManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHManager.swift; sourceTree = "<group>"; };
+		98C48626D2DA8F8047CB2754 /* Pods_NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +38,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A198CE0B336ACDAE0179ABB9 /* Pods_NetworkManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CCF87F78615BE47698DF262 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57CB19451580205F3C745986 /* Pods-NetworkManager.debug.xcconfig */,
+				484D586605A29B8F2372090B /* Pods-NetworkManager.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9067BF1E20265197004DD071 = {
 			isa = PBXGroup;
 			children = (
 				9067BF2920265198004DD071 /* NetworkManager */,
 				9067BF2820265198004DD071 /* Products */,
+				4CCF87F78615BE47698DF262 /* Pods */,
+				AC97DBD57F25557322B47B5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +75,25 @@
 		9067BF2920265198004DD071 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				9067BF3D20265313004DD071 /* NetworkManager-Bridging-Header.h */,
 				9067BF2A20265198004DD071 /* AppDelegate.swift */,
+				90E6D5C9202A403900C350D3 /* SSHManager.swift */,
 				9067BF2C20265198004DD071 /* ViewController.swift */,
+				9067BF5F202898B0004DD071 /* Users.swift */,
 				9067BF2E20265198004DD071 /* Main.storyboard */,
 				9067BF3120265198004DD071 /* Assets.xcassets */,
 				9067BF3320265198004DD071 /* LaunchScreen.storyboard */,
 				9067BF3620265198004DD071 /* Info.plist */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		AC97DBD57F25557322B47B5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98C48626D2DA8F8047CB2754 /* Pods_NetworkManager.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9067BF3920265198004DD071 /* Build configuration list for PBXNativeTarget "NetworkManager" */;
 			buildPhases = (
+				593B7D3527F2DBD21723A98F /* [CP] Check Pods Manifest.lock */,
 				9067BF2320265198004DD071 /* Sources */,
 				9067BF2420265198004DD071 /* Frameworks */,
 				9067BF2520265198004DD071 /* Resources */,
+				EAC5022152AE90E6D8FBD5EA /* [CP] Embed Pods Frameworks */,
+				61ADE525A2D911AC68B47E98 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +131,7 @@
 				TargetAttributes = {
 					9067BF2620265198004DD071 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,12 +167,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		593B7D3527F2DBD21723A98F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NetworkManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61ADE525A2D911AC68B47E98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAC5022152AE90E6D8FBD5EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NMSSH/NMSSH.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMSSH.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9067BF2320265198004DD071 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E6D5CA202A403900C350D3 /* SSHManager.swift in Sources */,
 				9067BF2D20265198004DD071 /* ViewController.swift in Sources */,
+				9067BF60202898B0004DD071 /* Users.swift in Sources */,
 				9067BF2B20265198004DD071 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,14 +364,19 @@
 		};
 		9067BF3A20265198004DD071 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57CB19451580205F3C745986 /* Pods-NetworkManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RK9WGKSBS8;
 				INFOPLIST_FILE = NetworkManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mykola.vankovych.NetworkManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NetworkManager/NetworkManager-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,14 +384,18 @@
 		};
 		9067BF3B20265198004DD071 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 484D586605A29B8F2372090B /* Pods-NetworkManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RK9WGKSBS8;
 				INFOPLIST_FILE = NetworkManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mykola.vankovych.NetworkManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NetworkManager/NetworkManager-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

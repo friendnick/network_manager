@@ -1,0 +1,640 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06A369F5702D0A929A4AE719E6CEEBFA /* SwiftSH-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46688BD6DBA6A5AE0E5BA9A7BEEB4E01 /* SwiftSH-dummy.m */; };
+		274BFEC92250664C17BFABE75C29D79C /* DNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24DB02D92187B81609CBD6DA72B189A /* DNS.swift */; };
+		35578F1A409C109AD50EFC1ACB1B90FB /* SwiftSH-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9626FACCA66FE179E6DE9782A7511E69 /* SwiftSH-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41BE753238773317DAA29E0E6A5EDADA /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD2A4105F1A1512719A266185CD408 /* Functions.swift */; };
+		4B3111EB414BC6BD032E848CB9F7B00E /* Libssh2.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EB91D6849F8D7CDF0EA0A26031800A1 /* Libssh2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F270DC4B19A2BEC2C7EB119AC9EE836 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E49501E880124AF5D6145236D154A4 /* Logger.swift */; };
+		52FB23F9AD469A805991B2207EC8498D /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355709B118DFFA45FA7AA8BD3CE9B8F /* ConsoleLogger.swift */; };
+		591BAC727B44FF124BF027BC72B85470 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D01026E9365C214FBC5639DDBCD3E9E /* Extensions.swift */; };
+		5ACD65334FC7117FC423DFAB36258164 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D10F8D46C90BC15DF8A7826D93CBA94 /* Shell.swift */; };
+		5B6E51709A9879ACF0E9AA64A5A7A282 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA89A4C0210771B9FC06F0EDC651A00 /* Command.swift */; };
+		74AB4B880AE0656486D8A543B2555E35 /* Libssh2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48166DFCB0ACB2CF77818F4C31BCBDC1 /* Libssh2.swift */; };
+		76A46F5D645B3D78A99E319C403F6181 /* Pods-NetworkController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60810083C14C5D3F9770848C3AB27877 /* Pods-NetworkController-dummy.m */; };
+		7A7907977D6F18636F2AA96A68D6D9A9 /* Pods-NetworkController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F6CD09AAD35D8CE775E3DCC52185D1 /* Pods-NetworkController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7BFC5BD258A8A2395135C3500E7ABF76 /* Libssh2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBC65AF8238751EB8E81FEB3983A8E /* Libssh2.m */; };
+		7D25FCC8FBD72497D350B27EB5E7DEC1 /* SFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE5A1166CFA6310DE925B0D9919709 /* SFTP.swift */; };
+		827C359E38E9E67DE288E5F0ABBEFC79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A057FD3F5B0FF686DB6505446A64238D /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F7F8FCC1B9367CAEA78D99A804E04 /* Channel.swift */; };
+		A49BD817B6483FBDD0963F4B8E89B40B /* SSHLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97BC067077F0E2B5B208A50AD4BB224 /* SSHLibrary.swift */; };
+		BE6DE73FD596E5F022DD7FDF51CF0EC3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B6559B57F8195E21B1E608EC231A5 /* Session.swift */; };
+		C18E2E07A3826FF8528B97A92E38A82E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5493DE300DEDCF1952A3001DB21B1E73 /* Queue.swift */; };
+		C537D6693CE287E422858A2B3B0D4253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D80C987BAD5B98720DEB12A75CE955A8 /* SCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3690EC2F9860E85BA596EA3953E22A /* SCP.swift */; };
+		FF500B061AFDD1BFE92D66FD6A8D662A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A3D38525E77F6D8C2E40CF94C6DA0 /* Error.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD584CFAB55AE58DFDAA9E21CF20098E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6363A47692818316844E4F39D5973D7F;
+			remoteInfo = SwiftSH;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0787E53C7549FC63D2B11B41532DEE4D /* SwiftSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftSH.framework; path = SwiftSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D10F8D46C90BC15DF8A7826D93CBA94 /* Shell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shell.swift; path = SwiftSH/Shell.swift; sourceTree = "<group>"; };
+		26AE5A1166CFA6310DE925B0D9919709 /* SFTP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SFTP.swift; path = SwiftSH/SFTP.swift; sourceTree = "<group>"; };
+		2DB727BDF1535603B8E9EAECFE0B0855 /* Pods-NetworkController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetworkController-acknowledgements.plist"; sourceTree = "<group>"; };
+		3F28BB32354AB1581C9ED6FFD06928A5 /* SwiftSH-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSH-prefix.pch"; sourceTree = "<group>"; };
+		46688BD6DBA6A5AE0E5BA9A7BEEB4E01 /* SwiftSH-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSH-dummy.m"; sourceTree = "<group>"; };
+		48166DFCB0ACB2CF77818F4C31BCBDC1 /* Libssh2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Libssh2.swift; path = SwiftSH/Libssh2.swift; sourceTree = "<group>"; };
+		5493DE300DEDCF1952A3001DB21B1E73 /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = SwiftSH/Queue.swift; sourceTree = "<group>"; };
+		58ECD603BB14FF70B7F7DD9C2E32C0F6 /* Pods-NetworkController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetworkController-frameworks.sh"; sourceTree = "<group>"; };
+		5B3690EC2F9860E85BA596EA3953E22A /* SCP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCP.swift; path = SwiftSH/SCP.swift; sourceTree = "<group>"; };
+		60810083C14C5D3F9770848C3AB27877 /* Pods-NetworkController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetworkController-dummy.m"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		67A3E17BFFC633846E7F8A10CBE5345D /* Pods-NetworkController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NetworkController-acknowledgements.markdown"; sourceTree = "<group>"; };
+		78A4431CD5D11976571C98F680B82053 /* Pods-NetworkController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NetworkController.modulemap"; sourceTree = "<group>"; };
+		7ABDCCC03D2A4B3F35937EAC9EBC998D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D7C9234E4BA4497372B7922F2980FCF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DB813239E7BAF6F6BED2E7BA0DE388A /* Pods_NetworkController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetworkController.framework; path = "Pods-NetworkController.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		855225BF499F5AAD59777CEAA54B1E89 /* Pods-NetworkController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetworkController.release.xcconfig"; sourceTree = "<group>"; };
+		85E72B4AF488D54E877CFC5D0CC84A36 /* SwiftSH.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftSH.xcconfig; sourceTree = "<group>"; };
+		8EB91D6849F8D7CDF0EA0A26031800A1 /* Libssh2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Libssh2.h; path = SwiftSH/Libssh2.h; sourceTree = "<group>"; };
+		8FDD2A4105F1A1512719A266185CD408 /* Functions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = SwiftSH/Functions.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		954F7E50D9A34F58C14EF9A1E6450B71 /* Pods-NetworkController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetworkController-resources.sh"; sourceTree = "<group>"; };
+		9626FACCA66FE179E6DE9782A7511E69 /* SwiftSH-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSH-umbrella.h"; sourceTree = "<group>"; };
+		971F7F8FCC1B9367CAEA78D99A804E04 /* Channel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = SwiftSH/Channel.swift; sourceTree = "<group>"; };
+		98F6CD09AAD35D8CE775E3DCC52185D1 /* Pods-NetworkController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NetworkController-umbrella.h"; sourceTree = "<group>"; };
+		9D01026E9365C214FBC5639DDBCD3E9E /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = SwiftSH/Extensions.swift; sourceTree = "<group>"; };
+		AF5D1105BA4551EDD01F95F5F9116166 /* Pods-NetworkController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetworkController.debug.xcconfig"; sourceTree = "<group>"; };
+		C24DB02D92187B81609CBD6DA72B189A /* DNS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DNS.swift; path = SwiftSH/DNS.swift; sourceTree = "<group>"; };
+		D5E49501E880124AF5D6145236D154A4 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = SwiftSH/Logger.swift; sourceTree = "<group>"; };
+		DAE71D12F41CC2689A4D96835CFB40FB /* SwiftSH.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftSH.modulemap; sourceTree = "<group>"; };
+		E355709B118DFFA45FA7AA8BD3CE9B8F /* ConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleLogger.swift; path = SwiftSH/ConsoleLogger.swift; sourceTree = "<group>"; };
+		E3FBC65AF8238751EB8E81FEB3983A8E /* Libssh2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Libssh2.m; path = SwiftSH/Libssh2.m; sourceTree = "<group>"; };
+		E66B6559B57F8195E21B1E608EC231A5 /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Session.swift; path = SwiftSH/Session.swift; sourceTree = "<group>"; };
+		ECA89A4C0210771B9FC06F0EDC651A00 /* Command.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Command.swift; path = SwiftSH/Command.swift; sourceTree = "<group>"; };
+		F27A3D38525E77F6D8C2E40CF94C6DA0 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = SwiftSH/Error.swift; sourceTree = "<group>"; };
+		F97BC067077F0E2B5B208A50AD4BB224 /* SSHLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSHLibrary.swift; path = SwiftSH/SSHLibrary.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73CE308BC7FAC89A338DA23232F941C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				827C359E38E9E67DE288E5F0ABBEFC79 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7930FDFCEB9F60810198B6CFEE53CB50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C537D6693CE287E422858A2B3B0D4253 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10DB629C009C5A64C650DB4277BD44D8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D7C9234E4BA4497372B7922F2980FCF /* Info.plist */,
+				DAE71D12F41CC2689A4D96835CFB40FB /* SwiftSH.modulemap */,
+				85E72B4AF488D54E877CFC5D0CC84A36 /* SwiftSH.xcconfig */,
+				46688BD6DBA6A5AE0E5BA9A7BEEB4E01 /* SwiftSH-dummy.m */,
+				3F28BB32354AB1581C9ED6FFD06928A5 /* SwiftSH-prefix.pch */,
+				9626FACCA66FE179E6DE9782A7511E69 /* SwiftSH-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftSH";
+			sourceTree = "<group>";
+		};
+		205EE985E19E0C56BD46B30D04D61C35 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				971F7F8FCC1B9367CAEA78D99A804E04 /* Channel.swift */,
+				ECA89A4C0210771B9FC06F0EDC651A00 /* Command.swift */,
+				E355709B118DFFA45FA7AA8BD3CE9B8F /* ConsoleLogger.swift */,
+				C24DB02D92187B81609CBD6DA72B189A /* DNS.swift */,
+				F27A3D38525E77F6D8C2E40CF94C6DA0 /* Error.swift */,
+				9D01026E9365C214FBC5639DDBCD3E9E /* Extensions.swift */,
+				8FDD2A4105F1A1512719A266185CD408 /* Functions.swift */,
+				D5E49501E880124AF5D6145236D154A4 /* Logger.swift */,
+				5493DE300DEDCF1952A3001DB21B1E73 /* Queue.swift */,
+				5B3690EC2F9860E85BA596EA3953E22A /* SCP.swift */,
+				E66B6559B57F8195E21B1E608EC231A5 /* Session.swift */,
+				26AE5A1166CFA6310DE925B0D9919709 /* SFTP.swift */,
+				1D10F8D46C90BC15DF8A7826D93CBA94 /* Shell.swift */,
+				F97BC067077F0E2B5B208A50AD4BB224 /* SSHLibrary.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2239A1530F88B3A9FC8060E93C8D7A02 /* SwiftSH */ = {
+			isa = PBXGroup;
+			children = (
+				205EE985E19E0C56BD46B30D04D61C35 /* Core */,
+				6B553EA5041C50664B9F2337A59BDA70 /* Libssh2 */,
+				10DB629C009C5A64C650DB4277BD44D8 /* Support Files */,
+			);
+			name = SwiftSH;
+			path = SwiftSH;
+			sourceTree = "<group>";
+		};
+		56440746D7E271EB456280A572935D84 /* Pods-NetworkController */ = {
+			isa = PBXGroup;
+			children = (
+				7ABDCCC03D2A4B3F35937EAC9EBC998D /* Info.plist */,
+				78A4431CD5D11976571C98F680B82053 /* Pods-NetworkController.modulemap */,
+				67A3E17BFFC633846E7F8A10CBE5345D /* Pods-NetworkController-acknowledgements.markdown */,
+				2DB727BDF1535603B8E9EAECFE0B0855 /* Pods-NetworkController-acknowledgements.plist */,
+				60810083C14C5D3F9770848C3AB27877 /* Pods-NetworkController-dummy.m */,
+				58ECD603BB14FF70B7F7DD9C2E32C0F6 /* Pods-NetworkController-frameworks.sh */,
+				954F7E50D9A34F58C14EF9A1E6450B71 /* Pods-NetworkController-resources.sh */,
+				98F6CD09AAD35D8CE775E3DCC52185D1 /* Pods-NetworkController-umbrella.h */,
+				AF5D1105BA4551EDD01F95F5F9116166 /* Pods-NetworkController.debug.xcconfig */,
+				855225BF499F5AAD59777CEAA54B1E89 /* Pods-NetworkController.release.xcconfig */,
+			);
+			name = "Pods-NetworkController";
+			path = "Target Support Files/Pods-NetworkController";
+			sourceTree = "<group>";
+		};
+		587283DB8877BBE5BD71B207C567C865 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				56440746D7E271EB456280A572935D84 /* Pods-NetworkController */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5FC7BDDCCC91B77C5D0F262F69C81EA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2239A1530F88B3A9FC8060E93C8D7A02 /* SwiftSH */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6B553EA5041C50664B9F2337A59BDA70 /* Libssh2 */ = {
+			isa = PBXGroup;
+			children = (
+				8EB91D6849F8D7CDF0EA0A26031800A1 /* Libssh2.h */,
+				E3FBC65AF8238751EB8E81FEB3983A8E /* Libssh2.m */,
+				48166DFCB0ACB2CF77818F4C31BCBDC1 /* Libssh2.swift */,
+			);
+			name = Libssh2;
+			sourceTree = "<group>";
+		};
+		77BE8E5B2C044F0AED3B832D60B796E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DB813239E7BAF6F6BED2E7BA0DE388A /* Pods_NetworkController.framework */,
+				0787E53C7549FC63D2B11B41532DEE4D /* SwiftSH.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				5FC7BDDCCC91B77C5D0F262F69C81EA2 /* Pods */,
+				77BE8E5B2C044F0AED3B832D60B796E8 /* Products */,
+				587283DB8877BBE5BD71B207C567C865 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B0C6313D927561F6EEA7E734F94ADEC0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B3111EB414BC6BD032E848CB9F7B00E /* Libssh2.h in Headers */,
+				35578F1A409C109AD50EFC1ACB1B90FB /* SwiftSH-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F149B49A6E37CF8E65CA3E06830EC2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7907977D6F18636F2AA96A68D6D9A9 /* Pods-NetworkController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6363A47692818316844E4F39D5973D7F /* SwiftSH */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D798912D49DB752D1F59B1918553207B /* Build configuration list for PBXNativeTarget "SwiftSH" */;
+			buildPhases = (
+				B5D16BAF9EB573E29E6E4AF34F883461 /* Sources */,
+				7930FDFCEB9F60810198B6CFEE53CB50 /* Frameworks */,
+				B0C6313D927561F6EEA7E734F94ADEC0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSH;
+			productName = SwiftSH;
+			productReference = 0787E53C7549FC63D2B11B41532DEE4D /* SwiftSH.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D214A82A55BB59974FF3D806C5EADA4C /* Pods-NetworkController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A9B1440432F13AB088B8ACFAABEE778 /* Build configuration list for PBXNativeTarget "Pods-NetworkController" */;
+			buildPhases = (
+				184F4350E130EC7120B47460F16397CC /* Sources */,
+				73CE308BC7FAC89A338DA23232F941C4 /* Frameworks */,
+				B8F149B49A6E37CF8E65CA3E06830EC2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD494560F47A4179ECFEA156C89000C5 /* PBXTargetDependency */,
+			);
+			name = "Pods-NetworkController";
+			productName = "Pods-NetworkController";
+			productReference = 7DB813239E7BAF6F6BED2E7BA0DE388A /* Pods_NetworkController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 77BE8E5B2C044F0AED3B832D60B796E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D214A82A55BB59974FF3D806C5EADA4C /* Pods-NetworkController */,
+				6363A47692818316844E4F39D5973D7F /* SwiftSH */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		184F4350E130EC7120B47460F16397CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76A46F5D645B3D78A99E319C403F6181 /* Pods-NetworkController-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5D16BAF9EB573E29E6E4AF34F883461 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A057FD3F5B0FF686DB6505446A64238D /* Channel.swift in Sources */,
+				5B6E51709A9879ACF0E9AA64A5A7A282 /* Command.swift in Sources */,
+				52FB23F9AD469A805991B2207EC8498D /* ConsoleLogger.swift in Sources */,
+				274BFEC92250664C17BFABE75C29D79C /* DNS.swift in Sources */,
+				FF500B061AFDD1BFE92D66FD6A8D662A /* Error.swift in Sources */,
+				591BAC727B44FF124BF027BC72B85470 /* Extensions.swift in Sources */,
+				41BE753238773317DAA29E0E6A5EDADA /* Functions.swift in Sources */,
+				7BFC5BD258A8A2395135C3500E7ABF76 /* Libssh2.m in Sources */,
+				74AB4B880AE0656486D8A543B2555E35 /* Libssh2.swift in Sources */,
+				4F270DC4B19A2BEC2C7EB119AC9EE836 /* Logger.swift in Sources */,
+				C18E2E07A3826FF8528B97A92E38A82E /* Queue.swift in Sources */,
+				D80C987BAD5B98720DEB12A75CE955A8 /* SCP.swift in Sources */,
+				BE6DE73FD596E5F022DD7FDF51CF0EC3 /* Session.swift in Sources */,
+				7D25FCC8FBD72497D350B27EB5E7DEC1 /* SFTP.swift in Sources */,
+				5ACD65334FC7117FC423DFAB36258164 /* Shell.swift in Sources */,
+				A49BD817B6483FBDD0963F4B8E89B40B /* SSHLibrary.swift in Sources */,
+				06A369F5702D0A929A4AE719E6CEEBFA /* SwiftSH-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD494560F47A4179ECFEA156C89000C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftSH;
+			target = 6363A47692818316844E4F39D5973D7F /* SwiftSH */;
+			targetProxy = AD584CFAB55AE58DFDAA9E21CF20098E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1E5C31B4DDB3E647566929AA2B05FF0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 855225BF499F5AAD59777CEAA54B1E89 /* Pods-NetworkController.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NetworkController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NetworkController/Pods-NetworkController.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NetworkController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		39C5BC78A31CDE101068C530CAC7FA0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9CA50A9CD96AE88D677ED5BBDAC66B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85E72B4AF488D54E877CFC5D0CC84A36 /* SwiftSH.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSH/SwiftSH-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSH/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftSH/SwiftSH.modulemap";
+				PRODUCT_NAME = SwiftSH;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B3A7F4DAFF86A7D84707AD08047EBE0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF5D1105BA4551EDD01F95F5F9116166 /* Pods-NetworkController.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NetworkController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NetworkController/Pods-NetworkController.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NetworkController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CE04BDC4CDCA2FC61B7B0B3E462CDF36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85E72B4AF488D54E877CFC5D0CC84A36 /* SwiftSH.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSH/SwiftSH-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSH/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftSH/SwiftSH.modulemap";
+				PRODUCT_NAME = SwiftSH;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C5BC78A31CDE101068C530CAC7FA0F /* Debug */,
+				89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A9B1440432F13AB088B8ACFAABEE778 /* Build configuration list for PBXNativeTarget "Pods-NetworkController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3A7F4DAFF86A7D84707AD08047EBE0C /* Debug */,
+				1E5C31B4DDB3E647566929AA2B05FF0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D798912D49DB752D1F59B1918553207B /* Build configuration list for PBXNativeTarget "SwiftSH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CA50A9CD96AE88D677ED5BBDAC66B78 /* Debug */,
+				CE04BDC4CDCA2FC61B7B0B3E462CDF36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
