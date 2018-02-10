@@ -16,7 +16,7 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
     @IBOutlet var cancelButton: UIBarButtonItem!
 
     let sshManager = SSHManager()
-    var usersMacs = [User]()
+    var users = [User]()
     var isReadCompleted = false
 
     override func viewDidLoad() {
@@ -67,12 +67,12 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
 
         var confirmMessage = "These users will be enabled:\n\n"
         for selectedIndex in selectedIndicies {
-            confirmMessage += usersMacs[selectedIndex.row].surname + " " + usersMacs[selectedIndex.row].name + "\n"
+            confirmMessage += users[selectedIndex.row].surname + " " + users[selectedIndex.row].name + "\n"
         }
 
         askForConfirmation(message: confirmMessage) { (_) in
             for selectedIndex in selectedIndicies {
-                self.setEnabled(user: &self.usersMacs[selectedIndex.row], enabled: true)
+                self.setEnabled(user: &self.users[selectedIndex.row], enabled: true)
             }
 
             self.usersTableView.reloadRows(at: selectedIndicies, with: .none)
@@ -90,12 +90,12 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
 
         var confirmMessage = "These users will be disabled:\n\n"
         for selectedIndex in selectedIndicies {
-            confirmMessage += usersMacs[selectedIndex.row].surname + " " + usersMacs[selectedIndex.row].name + "\n"
+            confirmMessage += users[selectedIndex.row].surname + " " + users[selectedIndex.row].name + "\n"
         }
 
         askForConfirmation(message: confirmMessage) { (_) in
             for selectedIndex in selectedIndicies {
-                self.setEnabled(user: &self.usersMacs[selectedIndex.row], enabled: false)
+                self.setEnabled(user: &self.users[selectedIndex.row], enabled: false)
             }
 
             self.usersTableView.reloadRows(at: selectedIndicies, with: .none)
@@ -115,15 +115,15 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
 
         var confirmMessage = "Only these users will be enabled, others will be disabled:\n\n"
         for selectedRow in selectedRows {
-            confirmMessage += usersMacs[selectedRow].surname + " " + usersMacs[selectedRow].name + "\n"
+            confirmMessage += users[selectedRow].surname + " " + users[selectedRow].name + "\n"
         }
 
         askForConfirmation(message: confirmMessage) { (_) in
-            for (index, _) in self.usersMacs.enumerated() {
+            for (index, _) in self.users.enumerated() {
                 if selectedRows.contains(index) {
-                    self.setEnabled(user: &self.usersMacs[index], enabled: true)
+                    self.setEnabled(user: &self.users[index], enabled: true)
                 } else {
-                    self.setEnabled(user: &self.usersMacs[index], enabled: false)
+                    self.setEnabled(user: &self.users[index], enabled: false)
                 }
             }
 
@@ -183,11 +183,11 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
                 print("no sender")
                 return
             }
-            if senderCell.tag < 0 || senderCell.tag >= usersMacs.count {
+            if senderCell.tag < 0 || senderCell.tag >= users.count {
                 print("tag out of bounds")
                 return
             }
-            let user = usersMacs[senderCell.tag]
+            let user = users[senderCell.tag]
             editUserViewController.user = user
             print("user name: \(user.fullName), \(user.macs.first?.mac ?? "no mac")")
             for mac in user.macs {
@@ -234,7 +234,7 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         sshManager.execute(command: "show macfilter summary")
         sshManager.execute(command: "y")
         sshManager.endCommands { (response) in
-            self.usersMacs = Reader.getUsers(from: response).sorted(by: { $0.fullName < $1.fullName })
+            self.users = Reader.getUsers(from: response).sorted(by: { $0.fullName < $1.fullName })
             self.isReadCompleted = true
         }
         let startReading = DispatchTime.now().uptimeNanoseconds
@@ -259,12 +259,12 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersMacs.count
+        return users.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
-        let user = usersMacs[indexPath.row]
+        let user = users[indexPath.row]
         cell.textLabel?.text = user.surname + " " + user.name
 //        cell.detailTextLabel?.text = user.hasInternet ? "Yes" : "No"
 //        cell.detailTextLabel?.textColor = user.hasInternet ? UIColor.green : UIColor.red
