@@ -55,23 +55,27 @@ struct User {
     var surname: String
     var name: String
     var hasInternet: Bool
-    //var macs: [Mac]
+    var macs: [Mac]
+
+    var fullName: String {
+        return surname + name
+    }
 }
 
 extension User: Hashable {
     var hashValue: Int {
-        return (surname + name).hashValue
+        return (fullName).hashValue
     }
 
     static func ==(lhs: User, rhs: User) -> Bool {
-        return (lhs.surname + lhs.name) == (rhs.surname + lhs.name)
+        return (lhs.fullName) == (rhs.fullName)
     }
 }
 
 class Reader {
-    static func getUsers(from terminalStr: String) -> [User: [Mac]] {
+    static func getUsers(from terminalStr: String) -> [User] {
 
-        var userMacs = [User:[Mac]]()
+        var userMacs = [User]()
 
         let foundIndecies = terminalStr.indicesOf(string: "MAC Address")
         if foundIndecies.isEmpty {
@@ -103,22 +107,35 @@ class Reader {
                 let name = rowFields[safe: 4] ?? ""
                 let description = rowFields[safe: 5] ?? ""
                 // Creating User and Mac
-                let user = User(surname: surname, name: name, hasInternet: hasInternet)
                 let mac = Mac(mac: macStr, description: description)
+                let user = User(surname: surname, name: name, hasInternet: hasInternet, macs: [mac])
                 // Adding mac for user
-                if userMacs[user] == nil {
-                    userMacs[user] = [mac]
+                if let userIndex = userMacs.index(of: user) {
+                    userMacs[userIndex].macs.append(mac)
                 } else {
-                    userMacs[user]?.append(mac)
+                    userMacs.append(user)
                 }
+//                if userMacs[user] == nil {
+//                    userMacs[user] = [mac]
+//                } else {
+//                    userMacs[user]?.append(mac)
+//                }
                 rowIter += 1
             }
         }
-        for usr in userMacs {
-            print("user:\(usr.key.surname + " " + usr.key.name) has \(usr.key.hasInternet ? "" : "no") internet")
-            print("macs:\(usr.value.reduce("", { $0 + " " + $1.mac + "-" + $1.description }))")
-        }
+//        for usr in userMacs {
+//            print("user:\(usr.surname + " " + usr.name) has \(usr.hasInternet ? "" : "no") internet")
+//            print("macs:\(usr.macs.reduce("", { $0 + " " + $1.mac + "-" + $1.description }))")
+//        }
         return userMacs
+    }
+
+    static func getEnableCommands(for user: User, enabled: Bool) -> [String] {
+        var enableCommands = [String]()
+        for mac in user.macs {
+            enableCommands.append("macfilter wlan-id \(mac.mac) \(enabled ? "3" : "2")")
+        }
+        return enableCommands
     }
 
     private static func startsWithMac(str: String) -> Bool {

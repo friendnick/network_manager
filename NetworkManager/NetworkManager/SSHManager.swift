@@ -28,6 +28,7 @@ class SSHManager: UIViewController {
             return
         }
 
+
         session?.channel.delegate = self
         session?.connect()
         if session?.isConnected == true{
@@ -37,6 +38,7 @@ class SSHManager: UIViewController {
             }
         } else {
             print("session? couldn't connect")
+            return
         }
 
         do {
@@ -62,7 +64,7 @@ class SSHManager: UIViewController {
         }
 
     }
-    func endCommands(getResponse: @escaping (String) -> ()) {
+    func endCommands(getResponse: ((String) -> ())?) {
         do {
             try session?.channel.write(endOfResponse + "\n")
             getResponseCallback = getResponse
@@ -99,5 +101,20 @@ extension SSHManager: NMSSHChannelDelegate {
             recievedEndOfResponse = true
             completeResponse = ""
         }
+    }
+
+    func channelShellDidClose(_ channel: NMSSHChannel!) {
+        guard let currentChannel = session?.channel else {
+            return
+        }
+
+        if (channel == currentChannel) {
+            print("\n\n----------------\nsame channel, shell did close.\n\n")
+            print("reconnecting...")
+            connect()
+        } else {
+            print("\n\n----------------\ndifferent channel, shell did close.\n\n")
+        }
+
     }
 }
