@@ -253,8 +253,6 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
     deinit {
         sshManager.disconnect()
     }
-
-
 }
 
 extension ViewController: UITableViewDataSource {
