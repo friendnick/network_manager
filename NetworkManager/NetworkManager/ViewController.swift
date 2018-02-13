@@ -9,25 +9,32 @@
 import UIKit
 import NMSSH
 
-class ViewController: UIViewController, NMSSHChannelDelegate {
+class ViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet var selectButton: UIBarButtonItem!
     @IBOutlet var cancelButton: UIBarButtonItem!
 
-    let sshManager = SSHManager()
+    var sshManager: SSHManager = SSHManager(mainView: nil)
     var users = [User]()
     var isReadCompleted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sshManager.connect()
+        sshManager = SSHManager(mainView: self)
 
+        usersTableView.delegate = self
         usersTableView.allowsMultipleSelectionDuringEditing = true
         updateToolbarButtons()
 
-        self.reloadUsers()
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if !sshManager.isConnected {
+            self.reloadUsers()
+        }
     }
 
     @IBAction func selectPressed(_ sender: Any) {
@@ -41,6 +48,7 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
     func setSelectingMode(_ isSelecting: Bool) {
         usersTableView.setEditing(isSelecting, animated: true)
         self.navigationController?.setToolbarHidden(!isSelecting, animated: true)
+        tableSelectedRowsChanged()
         updateToolbarButtons()
     }
 
@@ -51,7 +59,7 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         } else {
             self.navigationItem.rightBarButtonItem = self.selectButton
         }
-        self.selectButton.isEnabled = false
+        self.cancelButton.isEnabled = false
         self.cancelButton.isEnabled = true
         self.selectButton.isEnabled = false
         self.selectButton.isEnabled = true
@@ -61,11 +69,16 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         if !usersTableView.isEditing {
             return
         }
-        guard let selectedIndicies = usersTableView.indexPathsForSelectedRows else {
+        guard let selectedIndicies = usersTableView.indexPathsForSelectedRows,
+                selectedIndicies.count > 0 else {
+            return
+        }
+        if !sshManager.isConnected {
+            showError("No ssh connection.")
             return
         }
 
-        var confirmMessage = "These users will be enabled:\n\n"
+        var confirmMessage = "These\(selectedIndicies.count) users will be enabled:\n\n"
         for selectedIndex in selectedIndicies {
             confirmMessage += users[selectedIndex.row].surname + " " + users[selectedIndex.row].name + "\n"
         }
@@ -84,11 +97,16 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         if !usersTableView.isEditing {
             return
         }
-        guard let selectedIndicies = usersTableView.indexPathsForSelectedRows else {
+        guard let selectedIndicies = usersTableView.indexPathsForSelectedRows,
+            selectedIndicies.count > 0 else {
+            return
+        }
+        if !sshManager.isConnected {
+            showError("No ssh connection.")
             return
         }
 
-        var confirmMessage = "These users will be disabled:\n\n"
+        var confirmMessage = "These \(selectedIndicies.count) users will be disabled:\n\n"
         for selectedIndex in selectedIndicies {
             confirmMessage += users[selectedIndex.row].surname + " " + users[selectedIndex.row].name + "\n"
         }
@@ -108,12 +126,18 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         if !usersTableView.isEditing {
             return
         }
-        guard let selectedIndicies = usersTableView.indexPathsForSelectedRows else {
+        guard let selectedIndicies = usersTableView.indexPathsForSelectedRows,
+            selectedIndicies.count > 0 else {
             return
         }
+        if !sshManager.isConnected {
+            showError("No ssh connection.")
+            return
+        }
+
         let selectedRows = selectedIndicies.reduce([Int](), { $0 + [$1.row] })
 
-        var confirmMessage = "Only these users will be enabled, others will be disabled:\n\n"
+        var confirmMessage = "Only these \(selectedRows.count) users will be enabled, others will be disabled:\n\n"
         for selectedRow in selectedRows {
             confirmMessage += users[selectedRow].surname + " " + users[selectedRow].name + "\n"
         }
@@ -130,17 +154,38 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
             let range = NSMakeRange(0, self.usersTableView.numberOfSections)
             let sections = NSIndexSet(indexesIn: range)
             self.usersTableView.reloadSections(sections as IndexSet, with: .none)
-            //self.usersTableView.reloadRows(at: selectedIndicies, with: .none)
             self.setSelectingMode(false)
         }
+//        sshManager.disconnect()
+//        DispatchQueue.global(qos: .background).async {
+//            print("This is run on the background queue")
+//            let tempSSH = SSHManager(mainView: nil)
+//            tempSSH.connect()
+//            tempSSH.execute(command: "config macfilter wlan-id 14:15:16:14:15:16 2")
+//            tempSSH.execute(command: "save config")
+//            tempSSH.execute(command: "y")
+//            tempSSH.disconnect()
+////            while !self.isReadCompleted {
+////                self.getUsers()
+////            }
+////            self.isReadCompleted = false
+////
+////            DispatchQueue.main.async {
+////                print("This is run on the main queue, after the previous code in outer block")
+////                self.usersTableView.reloadData()
+////            }
+//        }
     }
 
     func setEnabled( user: inout User, enabled: Bool) {
         user.hasInternet = enabled
         let setEnabledCommands = Reader.getEnableCommands(for: user, enabled: enabled)
-        let str = setEnabledCommands.reduce("", { $0 + $1 + "\n" })
-        print("\(user.fullName):")
-        print(str)
+        print("command:\(setEnabledCommands)")
+        for command in setEnabledCommands {
+            sshManager.execute(command: command)
+        }
+        sshManager.execute(command: "save config")
+        sshManager.execute(command: "y")
     }
 
     func askForConfirmation(message: String, ifConfirmed: @escaping (UIAlertAction) -> ()) {
@@ -162,7 +207,23 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         }))
         present(confirmationDialog, animated: true, completion: nil)
     }
-
+    func showError(_ message: String, title: String = "Error", userClosable: Bool = true) -> UIAlertController {
+        let errorDialog = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        if userClosable {
+            errorDialog.addAction(UIAlertAction(
+                title: "Ok",
+                style: .default,
+                handler: { _ in
+                    // Don't do stuff
+            }))
+        }
+        present(errorDialog, animated: true, completion: nil)
+        return errorDialog
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -206,6 +267,11 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
 
     func reloadUsers() {
         while !self.isReadCompleted {
+            if !self.sshManager.isConnected {
+                let dialog = showError("Connecting to SSH server...", title: "In Progress", userClosable: false)
+                self.sshManager.connect()
+                dialog.dismiss(animated: true, completion: nil)
+            }
             self.getUsers()
         }
         self.isReadCompleted = false
@@ -227,7 +293,6 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
     }
 
     func getUsers() {
-        let startConnection = DispatchTime.now().uptimeNanoseconds
         isReadCompleted = false
         //let ssh = SSHManager()
         sshManager.startCommands()
@@ -241,13 +306,39 @@ class ViewController: UIViewController, NMSSHChannelDelegate {
         while DispatchTime.now().uptimeNanoseconds - startReading < 3000000000 && !isReadCompleted {
         }
         let finishTime = DispatchTime.now().uptimeNanoseconds
-        print("time connection: \((finishTime - startConnection) / 1000000)ms")
         print("time reading:\((finishTime - startReading) / 1000000)ms")
-        //ssh.disconnect()
     }
 
     @objc func switchChanged(_ sender: UISwitch!) {
+        if !sshManager.isConnected {
+            showError("No ssh connection.")
+            return
+        }
+        if sender.tag < 0 || sender.tag >= users.count {
+            return
+        }
+        setEnabled(user: &users[sender.tag], enabled: sender.isOn)
+    }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !tableView.isEditing {
+            tableView.deselectRow(at: indexPath, animated: false)
+            return
+        }
+        tableSelectedRowsChanged()
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableSelectedRowsChanged()
+    }
+    func tableSelectedRowsChanged() {
+        guard let selectedRowsCount = usersTableView.indexPathsForSelectedRows?.count,
+            selectedRowsCount > 0 else {
+                navigationItem.title = "Schulverein Users"
+                toolbarItems?.forEach{ $0.isEnabled = false }
+                return
+        }
+        navigationItem.title = "\(selectedRowsCount) users selected"
+        toolbarItems?.forEach{ $0.isEnabled = true }
     }
 
     deinit {
@@ -261,11 +352,15 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < 0 || indexPath.row >= users.count {
+            return UITableViewCell()
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
         let user = users[indexPath.row]
         cell.textLabel?.text = user.surname + " " + user.name
-//        cell.detailTextLabel?.text = user.hasInternet ? "Yes" : "No"
-//        cell.detailTextLabel?.textColor = user.hasInternet ? UIColor.green : UIColor.red
+        cell.detailTextLabel?.text = user.hasInternet ? "Yes" : "No"
+        cell.detailTextLabel?.textColor = user.hasInternet ? UIColor.green : UIColor.red
 
         let switchView = UISwitch(frame: .zero)
         switchView.setOn(user.hasInternet, animated: false)
@@ -276,7 +371,5 @@ extension ViewController: UITableViewDataSource {
         cell.tag = indexPath.row
         return cell
     }
-
-
 }
 

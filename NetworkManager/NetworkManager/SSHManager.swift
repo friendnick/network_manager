@@ -9,11 +9,18 @@
 import Foundation
 import NMSSH
 
-class SSHManager: UIViewController {
+class SSHManager: NSObject {
 
     var listenToResponse = true
+    var disconnectedManually = false
+
+    var isConnected: Bool {
+        return session?.isConnected ?? false
+    }
 
     private var session: NMSSHSession? = nil
+    private var mainView: UIViewController? = nil
+    private var aliveTimer: Timer? = nil
 
     private var completeResponse = String()
     private let startOfResponse = "startOfTheResponse"
@@ -21,36 +28,33 @@ class SSHManager: UIViewController {
     private var recievedEndOfResponse = false
     private var getResponseCallback: ((String) -> ())? = nil
 
+    init(mainView: UIViewController?) {
+        self.mainView = mainView
+    }
+
     func connect() {
         session = NMSSHSession(host: "192.168.178.2", andUsername: "cisco")
         if session == nil {
-            print("no session?")
+            showError("Session couldn't be created.")
             return
         }
-
 
         session?.channel.delegate = self
         session?.connect()
         if session?.isConnected == true{
             session?.authenticate(byPassword: "Alpen$4410")
             if session?.isAuthorized != true {
-                print("session is not authenticated.")
+                showError("Session is not authorized.")
             }
         } else {
-            print("session? couldn't connect")
+            showError("Session couldn't connect.")
             return
         }
 
-        do {
-            try session?.channel.startShell()
-            try session?.channel.write("cisco\n")
-            try session?.channel.write("Alpen$4410\n")
-            try session?.channel.write("config paging disable\n")
-        } catch let err {
-            print("connect: shell writing err:\(err)")
-        }
+        startShellLogin()
     }
     func disconnect() {
+        disconnectedManually = true
         session?.channel.closeShell()
         session?.disconnect()
     }
@@ -60,16 +64,15 @@ class SSHManager: UIViewController {
         do {
             try session?.channel.write(startOfResponse + "\n")
         } catch let err {
-            print("startCommands: shell writing err: \(err)")
+            showError("StartCommands: shell writing err: \(err).")
         }
-
     }
     func endCommands(getResponse: ((String) -> ())?) {
         do {
             try session?.channel.write(endOfResponse + "\n")
             getResponseCallback = getResponse
         } catch let err {
-            print("endCommands: shell writing err: \(err)")
+            showError("EndCommands: shell writing err: \(err).")
         }
     }
 
@@ -77,8 +80,46 @@ class SSHManager: UIViewController {
         do {
             try session?.channel.write(command + "\n")
         } catch let err {
-            print("execute: shell writing err: \(err)")
+            showError("Execute: shell writing err: \(err).")
         }
+    }
+
+    private func startShellLogin() {
+        do {
+            try session?.channel.startShell()
+            try session?.channel.write("cisco\n")
+            try session?.channel.write("Alpen$4410\n")
+            try session?.channel.write("config paging disable\n")
+            aliveTimer = Timer.scheduledTimer(withTimeInterval: 300, repeats: true, block: { (_) in
+                do {
+                    try self.session?.channel.write("youShouldKeepMeActive")
+                } catch _ {
+
+                }
+                return
+            })
+
+        } catch let err {
+            showError("Connect: shell writing err:\(err).")
+        }
+    }
+
+    private func showError(_ message: String, userClosable: Bool = true) -> UIAlertController {
+        let errorDialog = UIAlertController(
+            title: "SSH Error",
+            message: message,
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        if userClosable {
+            errorDialog.addAction(UIAlertAction(
+                title: "Ok",
+                style: .default,
+                handler: { _ in
+                    // Don't do stuff
+            }))
+        }
+        mainView?.present(errorDialog, animated: true, completion: nil)
+        return errorDialog
     }
 }
 
@@ -109,12 +150,26 @@ extension SSHManager: NMSSHChannelDelegate {
         }
 
         if (channel == currentChannel) {
-            print("\n\n----------------\nsame channel, shell did close.\n\n")
-            print("reconnecting...")
+            let errorDialog = showError("Channel: Shell has been closed. Reconnecting...", userClosable: false)
+            disconnect()
             connect()
+            errorDialog.dismiss(animated: true, completion: nil)
+            //startShellLogin()
         } else {
-            print("\n\n----------------\ndifferent channel, shell did close.\n\n")
+            showError("Peripheral Channel: Shell has been closed.")
         }
+    }
+}
 
+extension SSHManager: NMSSHSessionDelegate {
+    func session(_ session: NMSSHSession!, didDisconnectWithError error: Error!) {
+        if session == self.session
+           && !disconnectedManually {
+            let errorDialog = showError("Session disconnected with error: \(error).\nReconnecting...", userClosable: false)
+            //disconnect()
+            connect()
+            errorDialog.dismiss(animated: true, completion: nil)
+        }
+        disconnectedManually = false
     }
 }

@@ -133,7 +133,7 @@ class Reader {
     static func getEnableCommands(for user: User, enabled: Bool) -> [String] {
         var enableCommands = [String]()
         for mac in user.macs {
-            enableCommands.append("macfilter wlan-id \(mac.mac) \(enabled ? "3" : "2")")
+            enableCommands.append("config macfilter wlan-id \(mac.mac) \(enabled ? "3" : "2")")
         }
         return enableCommands
     }
