@@ -207,7 +207,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         }))
         present(confirmationDialog, animated: true, completion: nil)
     }
-    func showError(_ message: String, title: String = "Error", userClosable: Bool = true) -> UIAlertController {
+    func showError(_ message: String, title: String = "Error", userClosable: Bool = true, animated: Bool = true) -> UIAlertController {
         let errorDialog = UIAlertController(
             title: title,
             message: message,
@@ -221,7 +221,7 @@ class ViewController: UIViewController, UITableViewDelegate {
                     // Don't do stuff
             }))
         }
-        present(errorDialog, animated: true, completion: nil)
+        present(errorDialog, animated: animated, completion: nil)
         return errorDialog
     }
 
@@ -268,7 +268,10 @@ class ViewController: UIViewController, UITableViewDelegate {
     func reloadUsers() {
         while !self.isReadCompleted {
             if !self.sshManager.isConnected {
-                let dialog = showError("Connecting to SSH server...", title: "In Progress", userClosable: false)
+                let dialog = showError("Connecting to SSH server...",
+                                       title: "In Progress",
+                                       userClosable: false,
+                                       animated: false)
                 self.sshManager.connect()
                 dialog.dismiss(animated: true, completion: nil)
             }
